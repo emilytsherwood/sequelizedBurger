@@ -1,0 +1,24 @@
+<!-- All HTML that is consistent across all pages goes into this main.handlebars file -->
+<!DOCTYPE html> 
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="/assets/css/burger_style.css" type="text/css"/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+      <title>Eat-Da-Burger</title>
+   </head>
+   <body>
+         <!-- Setting up my header -->
+            <div class="jumbotron">
+               <center>
+               <!-- Burger image -->
+                  <img src="/assets/img/burger.png" alt="burger" class="burger-style" />
+               </center>
+               <!-- What the page is called -->
+               <h1 class="text-center">Eat-Da-Burger!</h1>
+            </div>
+         
+         {{{ body }}}
+     
+   </body>
+</html>
