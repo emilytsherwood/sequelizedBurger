@@ -2,8 +2,9 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
+var handlebars = require("express-handlebars");
 
-var router = require('./controllers/burgers_controller.js');
+var db = require("./models");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -23,12 +24,16 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 // Using that engine
 app.set("view engine", "handlebars");
 
-// Using the router required on line 6
-app.use('/', router);
-
-// Listening to the PORT set up on line 9
-app.listen(PORT, function(){
-	console.log("Listening on: " + PORT);
+app.get('/', function (res, req) {
+	db.burgers.findAll({}).then(function (dbResponse) {
+		res.render('index', {burgers: dbResponse});
+	});
 });
 
+
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
+});
 

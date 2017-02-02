@@ -1,25 +1,30 @@
-// Importing the orm.js file
-var orm = require("../config/orm.js");
+module.exports = function(sequelize, DataTypes) {
+    var Burger = sequelize.define("Burger", {
+        id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
+        burger_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        devoured: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+            allowNull: false
+        },
+        date: {
+            type: DataTypes.DATE
+        }
 
-//Calling the ORM functions
-var burger = {
-  all: function(cb) {
-    orm.all("burgers", function(res) {
-      cb(res);
     });
-  },
-  // The variables cols and vals are arrays.
-  create: function(cols, vals, cb) {
-    orm.create("burgers", cols, vals, function(res) {
-      cb(res);
-    });
-  },
-  update: function(objColVals, condition, cb) {
-    orm.update("burgers", objColVals, condition, function(res) {
-      cb(res);
-    });
-  }
+
+    return Burger;
 };
 
-// Exporting the file
-module.exports = burger;
+
+
