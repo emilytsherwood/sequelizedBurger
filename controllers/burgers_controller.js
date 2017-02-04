@@ -1,13 +1,13 @@
 var express = require('express');
 //importing the burger.js file to use its database functions
-var burgerFile = require ('../models');
+var db = require ('../models');
 // creating the router for the app
 var router = express.Router();
 var bodyParser = require('body-parser');
 
 // create all our routes and set up logic within those routes where required.
 router.get('/', function(req, res) {
-  burgerFile.findAll({})
+  db.Burger.findAll({})
   .then(function(data) {
     var hbsObject = {
       burgers: data
@@ -20,7 +20,7 @@ router.get('/', function(req, res) {
 // When the submit button on the input field named "burgername" in index.handlebars is pressed
 // Will go to /create route
 router.post('/create', function(req, res) {
-  burgerFile.create({
+  db.Burger.create({
     burger_name: req.body.burgername,
     devoured: req.body.devoured 
   })
@@ -33,7 +33,7 @@ router.post('/create', function(req, res) {
 router.put('/:id', function(req, res) {
   // var condition = 'id = ' + req.params.id;
   // console.log('condition', condition);
-  burgerFile.update({
+  db.Burger.update({
     devoured: req.body,
   },
    {
