@@ -7,7 +7,7 @@
    {{#unless devoured}}
    <!-- #unless will render the block if it returns falsy -->
   
-      {{burger_name}} - {{devoured}}
+      {{burger_name}} 
       <br>
       <form action="/{{id}}?_method=PUT" method="POST">
          <input type="hidden" name="devoured" value="true">
@@ -27,11 +27,11 @@
    {{#if devoured}}
    <!-- #if conditional -->
 
-      {{burger_name}} - {{devoured}}
+      {{burger_name}} 
       <br>
       <form action="/{{id}}?_method=PUT" method="POST">
          <input type="hidden" name="devoured" value="false">
-         <button type="submit">Undevour!</button>
+         
       </form>
       <br>
       {{/if}}
