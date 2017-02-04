@@ -15,7 +15,6 @@ module.exports = function(sequelize, DataTypes) {
         devoured: {
             type: DataTypes.BOOLEAN,
             defaultValue: false,
-            allowNull: false
         },
         date: {
             type: DataTypes.DATE
@@ -25,6 +24,7 @@ module.exports = function(sequelize, DataTypes) {
 
     return Burger;
 };
+
 
 
 

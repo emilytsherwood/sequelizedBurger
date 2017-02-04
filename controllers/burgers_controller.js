@@ -34,11 +34,11 @@ router.put('/:id', function(req, res) {
   // var condition = 'id = ' + req.params.id;
   // console.log('condition', condition);
   db.Burger.update({
-    devoured: req.body,
+    devoured: true,
   },
    {
     where: {
-      id: req.body.id
+      id: req.params.id
     }
   })
   .then(function(data) {
