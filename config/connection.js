@@ -2,12 +2,12 @@
 // Requiring mysql
 var mysql = require ('mysql');
 // Creating the connection to the database
-var connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "burgers_db"
-});
+// var connection = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "",
+//   database: "burgers"
+// });
 
 if (process.env.JAWSDB_URL) {
 	connection = mysql.createConnection(process.env.JAWSDB_URL);	
@@ -16,8 +16,8 @@ if (process.env.JAWSDB_URL) {
 	connection = mysql.createConnection({
 		host: 'localhost',
 		user: 'root',
-		password: 'hacktheplanet',
-		database: 'todoagain_db'
+		password: '',
+		database: 'burgers'
 	});
 	}
 
